@@ -19,7 +19,7 @@
     <string name="delText" translatable="false">del</string>
     <string name="leftText" translatable="false">&lt;</string>
     <string name="rightText" translatable="false">&gt;</string>
-    <string name="percentText" translatable="false">%</string>
+    <string name="percentText" translatable="false">C</string>
     <string name="equalsText" translatable="false">=</string>
     <string name="btnTextSize" translatable="false">12pt</string>
 </resources>

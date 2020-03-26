@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
     Button braces;
     Button dot;
-    Button percent;
 
     Button left;
     Button right;
 
     Button del;
+    Button clear;
 
     EditText expression;
     EditText answer;
@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
         braces = findViewById(R.id.btnBraces);
         dot = findViewById(R.id.btnDot);
-        percent = findViewById(R.id.btnPercent);
 
         left = findViewById(R.id.btnLeft);
         right = findViewById(R.id.btnRight);
 
         del = findViewById(R.id.btnDel);
+        clear = findViewById(R.id.btnClear);
 
         expression = findViewById(R.id.etExpression);
         answer = findViewById(R.id.etAnswer);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         braces.setOnClickListener(new ClickRespond(this));
         dot.setOnClickListener(new ClickRespond(this));
         del.setOnClickListener(new ClickRespond(this));
-        percent.setOnClickListener(new ClickRespond(this));
+        clear.setOnClickListener(new ClickRespond(this));
         left.setOnClickListener(new ClickRespond(this));
         right.setOnClickListener(new ClickRespond(this));
     }

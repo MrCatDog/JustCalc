@@ -67,7 +67,7 @@
         <Button
             style="@style/Btn"
             android:text="@string/percentText"
-            android:id="@+id/btnPercent">
+            android:id="@+id/btnClear">
         </Button>
         <Button
             style="@style/Btn"

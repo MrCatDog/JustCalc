@@ -36,8 +36,7 @@ public class ClickRespond implements View.OnClickListener {
             case R.id.btnDot:
                 newSymbol=".";
                 break;
-            case R.id.btnPercent:
-                newSymbol="%";
+            case R.id.btnClear://отчистить всё
                 break;
 
                 //удалять символ перед курсором

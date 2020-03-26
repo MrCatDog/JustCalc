@@ -39,7 +39,7 @@ public class Parser implements Runnable {
         int braceCount = 0;
         boolean isLastWasNumeric=false;
 
-        for (Character i:textByCharacters) {
+        for (Character i:textByCharacters) { //что будет происходить при точке?
             if(Character.isDigit(i) || (i.equals('.') && !element.isEmpty())) //если число
                 element = new StringBuilder(element).append(i).toString();
             else
