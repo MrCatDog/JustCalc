@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000099</color>
+
+    <color name="textBtnColor">#FFFFFF</color>
+    <color name="operationsBtnsColor">#000099</color>
+    <color name="operationsBtnsBrighterColor">#0000b2</color>
+    <color name="answerTextColor">#FFFFFF</color>
+    <color name="answerWrongExpressionTextColor">#808080</color>
+
+</resources>

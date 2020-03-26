@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name" translatable="false">JustCalc</string>
+    <string name="addText" translatable="false">+</string>
+    <string name="minText" translatable="false">-</string>
+    <string name="multText" translatable="false">*</string>
+    <string name="divText" translatable="false">/</string>
+    <string name="zeroText" translatable="false">0</string>
+    <string name="oneText" translatable="false">1</string>
+    <string name="twoText" translatable="false">2</string>
+    <string name="threeText" translatable="false">3</string>
+    <string name="fourText" translatable="false">4</string>
+    <string name="fiveText" translatable="false">5</string>
+    <string name="sixText" translatable="false">6</string>
+    <string name="sevenText" translatable="false">7</string>
+    <string name="eightText" translatable="false">8</string>
+    <string name="nineText" translatable="false">9</string>
+    <string name="dotText" translatable="false">.</string>
+    <string name="parenText" translatable="false">( )</string>
+    <string name="delText" translatable="false">del</string>
+    <string name="leftText" translatable="false">&lt;</string>
+    <string name="rightText" translatable="false">&gt;</string>
+    <string name="percentText" translatable="false">%</string>
+    <string name="equalsText" translatable="false">=</string>
+    <string name="btnTextSize" translatable="false">12pt</string>
+</resources>
