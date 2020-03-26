@@ -36,9 +36,11 @@ public class ClickRespond implements View.OnClickListener {
             case R.id.btnDot:
                 newSymbol=".";
                 break;
-            case R.id.btnClear://отчистить всё
-                break;
 
+            case R.id.btnClear://отчистить всё
+                mainActivity.expression.getText().clear();
+                mainActivity.answer.getText().clear();
+                return;
                 //удалять символ перед курсором
             case R.id.btnDel:
 

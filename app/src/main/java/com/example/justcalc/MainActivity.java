@@ -113,6 +113,5 @@ public class MainActivity extends AppCompatActivity {
                 //this.answer.setText(answer); //да блять будет эта хуета работать или нет?
             }
         });
-
     }
 }
