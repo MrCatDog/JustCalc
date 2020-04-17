@@ -25,7 +25,7 @@ public class Parser implements Runnable {
         put("/", Operator.DIV);
     }};
 
-    Parser(String text, MainActivity mainActivity) {
+    Parser(MainActivity mainActivity, String text) {
         mainActivityWeakReference = new WeakReference<>(mainActivity);
         textByCharacters = new Character[text.length()];
         char[] chars = text.toCharArray();

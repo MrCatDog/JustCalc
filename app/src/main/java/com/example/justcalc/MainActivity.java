@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    //digits
     Button one;
     Button two;
     Button three;
@@ -18,21 +19,21 @@ public class MainActivity extends AppCompatActivity {
     Button eight;
     Button nine;
     Button zero;
-
+    //operations
     Button add;
     Button sub;
     Button mul;
     Button div;
-
+    //symbols
     Button braces;
     Button dot;
-
+    //movements
     Button left;
     Button right;
-
+    //deleting
     Button del;
     Button clear;
-
+    //fields
     EditText expression;
     EditText answer;
 
@@ -110,7 +111,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 MainActivity.this.answer.setText(answer);
-                //this.answer.setText(answer); //да блять будет эта хуета работать или нет?
+                //MainActivity.this.answer.getText().clear(); //да
+                //MainActivity.this.answer.getText().append(answer);//блять
+                //this.answer.setText(answer); //будет эта хуета работать или нет?
             }
         });
     }

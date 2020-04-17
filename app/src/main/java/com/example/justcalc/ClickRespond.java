@@ -41,6 +41,7 @@ public class ClickRespond implements View.OnClickListener {
                 mainActivity.expression.getText().clear();
                 mainActivity.answer.getText().clear();
                 return;
+                
                 //удалять символ перед курсором
             case R.id.btnDel:
 
@@ -92,7 +93,6 @@ public class ClickRespond implements View.OnClickListener {
         mainActivity.appendExpressionText(newSymbol);
         //threadHandler.post(new Parser("70+6"));
 
-        Runnable parse = new Parser(mainActivity.getExpressionText().toString(), this.mainActivity);
-        new Thread(parse).start();
+        new Thread(new Parser(this.mainActivity, mainActivity.getExpressionText().toString())).start();
     }
 }
