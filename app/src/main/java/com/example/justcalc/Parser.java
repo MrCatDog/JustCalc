@@ -1,5 +1,11 @@
 package com.example.justcalc;
 
+import android.graphics.Color;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.widget.Toast;
+
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -10,6 +16,7 @@ public class Parser implements Runnable {
     private Character[] textByCharacters;
     private LinkedList<String> answer = new LinkedList<>();
     private WeakReference<MainActivity> mainActivityWeakReference;
+    private Handler UIhandler = new Handler(Looper.getMainLooper());
 
     enum Operator {
         ADD(1),SUB(2),MULT(3),DIV(4);
@@ -30,7 +37,7 @@ public class Parser implements Runnable {
         textByCharacters = new Character[text.length()];
         char[] chars = text.toCharArray();
         for(int i=0;i<text.length();i++)
-            textByCharacters[i]=(Character) chars[i];
+            textByCharacters[i]=(Character) chars[i]; //так ли "redurant" явное преобразование, если я хочу оставить его более явным для читающего?
     }
 
     @Override
@@ -89,11 +96,21 @@ public class Parser implements Runnable {
 
     private void sendAnswer(final String answer) {
         final MainActivity activity = mainActivityWeakReference.get();
-        activity.setAnswer(answer);
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                activity.answer.setText(answer);
+            }
+        });
     }
 
-    private void setAnswerColor(int color) {
-        MainActivity activity = mainActivityWeakReference.get();
-        activity.answer.setTextColor(color);
+    private void setAnswerColor(final int color) {//final?
+        final MainActivity activity = mainActivityWeakReference.get();
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                activity.answer.setTextColor(color);//ЭТА ЕБУЧАЯ ХУЙНЯ ВСЁ ЛОМАЕТ!!! строго заданный цвет работает.
+            }
+        });
     }
 }

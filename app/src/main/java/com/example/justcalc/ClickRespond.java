@@ -1,13 +1,10 @@
 package com.example.justcalc;
 
-//import android.os.Handler;
-//import android.os.Looper;
 import android.view.View;
 
 public class ClickRespond implements View.OnClickListener {
 
     private MainActivity mainActivity;
-    //Handler threadHandler = new Handler(Looper.getMainLooper());
     private String newSymbol;
 
     ClickRespond(MainActivity activity) {
@@ -91,7 +88,6 @@ public class ClickRespond implements View.OnClickListener {
         }
 
         mainActivity.appendExpressionText(newSymbol);
-        //threadHandler.post(new Parser("70+6"));
 
         new Thread(new Parser(this.mainActivity, mainActivity.getExpressionText().toString())).start();
     }

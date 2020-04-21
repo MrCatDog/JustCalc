@@ -98,23 +98,7 @@ public class MainActivity extends AppCompatActivity {
         expression.append(appChar);
     }
 
-    protected void setExpressionText(String text) {
-        expression.setText(text);
-    }
-
     protected Editable getExpressionText() {
         return expression.getText();
-    }
-
-    protected void setAnswer(final String answer) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                MainActivity.this.answer.setText(answer);
-                //MainActivity.this.answer.getText().clear(); //да
-                //MainActivity.this.answer.getText().append(answer);//блять
-                //this.answer.setText(answer); //будет эта хуета работать или нет?
-            }
-        });
     }
 }
