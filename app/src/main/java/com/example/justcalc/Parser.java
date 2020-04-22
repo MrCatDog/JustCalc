@@ -1,10 +1,6 @@
 package com.example.justcalc;
 
-import android.graphics.Color;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.widget.Toast;
+import androidx.core.content.ContextCompat;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -16,7 +12,6 @@ public class Parser implements Runnable {
     private Character[] textByCharacters;
     private LinkedList<String> answer = new LinkedList<>();
     private WeakReference<MainActivity> mainActivityWeakReference;
-    private Handler UIhandler = new Handler(Looper.getMainLooper());
 
     enum Operator {
         ADD(1),SUB(2),MULT(3),DIV(4);
@@ -94,23 +89,13 @@ public class Parser implements Runnable {
 
     }
 
-    private void sendAnswer(final String answer) {
+    private void sendAnswer(String answer) {
         final MainActivity activity = mainActivityWeakReference.get();
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                activity.answer.setText(answer);
-            }
-        });
+        activity.setAnswer(answer);
     }
 
-    private void setAnswerColor(final int color) {//final?
+    private void setAnswerColor(int color) {//final?
         final MainActivity activity = mainActivityWeakReference.get();
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                activity.answer.setTextColor(color);//ЭТА ЕБУЧАЯ ХУЙНЯ ВСЁ ЛОМАЕТ!!! строго заданный цвет работает.
-            }
-        });
+        activity.setAnswerColor(ContextCompat.getColor(activity, color));//ContextCompact - deprecated
     }
 }

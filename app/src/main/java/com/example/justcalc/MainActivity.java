@@ -101,4 +101,22 @@ public class MainActivity extends AppCompatActivity {
     protected Editable getExpressionText() {
         return expression.getText();
     }
+
+    void setAnswer(final String newAnswer) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                answer.setText(newAnswer);
+            }
+        });
+    }
+
+    void setAnswerColor(final int color) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                answer.setTextColor(color);//ЭТА ЕБУЧАЯ ХУЙНЯ ВСЁ ЛОМАЕТ!!! строго заданный цвет работает.
+            }
+        });
+    }
 }
