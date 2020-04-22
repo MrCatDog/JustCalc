@@ -7,13 +7,13 @@ import java.util.ListIterator;
 
 import static com.example.justcalc.Parser.ops;
 
-public class ShuntingYard {
+class ShuntingYard{
 
     private static boolean isHigher(String first, String second) {
         return (ops.containsKey(second) && ops.get(second).precedence >= ops.get(first).precedence);
     }
 
-    public static LinkedList run(LinkedList<String> exp) {
+    static LinkedList run(LinkedList<String> exp) {
         ListIterator<String> iterator = exp.listIterator();
         Deque<String> operators = new ArrayDeque<>();
         LinkedList<String> answer = new LinkedList<>();
