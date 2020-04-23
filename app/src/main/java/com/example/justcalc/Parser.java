@@ -13,6 +13,7 @@ public class Parser implements Runnable {
     private LinkedList<String> answer = new LinkedList<>();
     private WeakReference<MainActivity> mainActivityWeakReference;
     private Evaluating Evaluator = new JustEvaluator();
+    private PolishTranslating Translator = new ShuntingYard();
 
     enum Operator {
         ADD(1),SUB(2),MULT(3),DIV(4);
@@ -85,7 +86,7 @@ public class Parser implements Runnable {
             setAnswerColor(R.color.answerWrongExpressionTextColor);
         } else {
             setAnswerColor(R.color.answerTextColor);
-            sendAnswer(Evaluator.Evaluate(ShuntingYard.run(answer)).toString());
+            sendAnswer(Evaluator.Evaluate(Translator.translate(answer)).toString());
         }
 
     }
