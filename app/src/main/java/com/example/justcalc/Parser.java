@@ -60,9 +60,8 @@ public class Parser implements Runnable {
             //parenthesis
             } else if(i.equals('(') || i.equals(')')) {
                 if(!element.isEmpty()) {
-                    answer.add(element);
-                    wasDot=false;
-                    element="";
+                    setAnswerColor(R.color.answerWrongExpressionTextColor);
+                    return;
                 }
                 if(i.equals('('))
                     braceCount++;

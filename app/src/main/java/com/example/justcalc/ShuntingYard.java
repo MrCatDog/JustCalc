@@ -13,7 +13,7 @@ class ShuntingYard implements PolishTranslating{
         return (ops.containsKey(second) && ops.get(second).precedence >= ops.get(first).precedence);
     }
 
-    public LinkedList translate(LinkedList<String> exp) {
+    public LinkedList<String> translate(LinkedList<String> exp) {
         ListIterator<String> iterator = exp.listIterator();
         Deque<String> operators = new ArrayDeque<>();
         LinkedList<String> answer = new LinkedList<>();
@@ -34,7 +34,7 @@ class ShuntingYard implements PolishTranslating{
 
             //right brace
             else if(token.equals(")")) {
-                while(!operators.peek().equals("("))
+                while(!"(".equals(operators.peek()))
                     answer.add(operators.pop());
                 operators.pop();
             }
