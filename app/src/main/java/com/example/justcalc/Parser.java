@@ -41,41 +41,48 @@ public class Parser implements Runnable {
     public void run() {
         String element = "";
         int braceCount = 0;
-        boolean isLastWasNumeric=false;
+        boolean wasDot = false;
 
-        for (Character i:textByCharacters) { //что будет происходить при точке?
-            if(Character.isDigit(i) || (i.equals('.') && !element.isEmpty())) //если число
-                element = new StringBuilder(element).append(i).toString();
-            else
-            {
+        for(Character i:textByCharacters) {
+            //operation
+            if(ops.containsKey(i.toString())) {
+
                 if(!element.isEmpty()) {
                     answer.add(element); //если мы считывали число, то запишем его.
+                    wasDot=false;
                     element=""; //и обнулим.
-                    isLastWasNumeric=true;
+                    answer.add(i.toString());
+                } else {
+                    setAnswerColor(R.color.answerWrongExpressionTextColor);
+                    return;
                 }
 
-                if(ops.containsKey(i.toString())) {
+            //parenthesis
+            } else if(i.equals('(') || i.equals(')')) {
+                if(!element.isEmpty()) {
+                    setAnswerColor(R.color.answerWrongExpressionTextColor);
+                    return;
+                }
+                if(i.equals('('))
+                    braceCount++;
+                else
+                    braceCount--;
+                answer.add(i.toString());
 
-                    if(!isLastWasNumeric)//проверка допустимо ли выполнять операцию.
-                    {
+            //digit or dot
+            } else {
+                if(i.equals('.')) {
+                    if(wasDot || element.isEmpty()) {//is the dot rightful here?
                         setAnswerColor(R.color.answerWrongExpressionTextColor);
                         return;
-                    }
-                    isLastWasNumeric=false;//сообщаем, что это не число именно тут, чтобы после скобки можно было вставить операцию. не уверен, что это будет работать нормально, при "6+()+"
-                } else {
-                    if (i.equals('('))
-                        braceCount++;
-                    else
-                        braceCount--;
+                    } else
+                        wasDot=true;//no more points in this number.
                 }
-
-                answer.add(i.toString());
+                element+=i.toString();
             }
-
-
         }
 
-        if(!element.isEmpty())
+        if(!element.isEmpty())//если выражение кончается скобкой?
             answer.add(element);
         else {
             setAnswerColor(R.color.answerWrongExpressionTextColor);
@@ -96,7 +103,7 @@ public class Parser implements Runnable {
         activity.setAnswer(answer);
     }
 
-    private void setAnswerColor(int color) {//final?
+    private void setAnswerColor(int color) {
         final MainActivity activity = mainActivityWeakReference.get();
         activity.setAnswerColor(ContextCompat.getColor(activity, color));//ContextCompact - deprecated
     }
