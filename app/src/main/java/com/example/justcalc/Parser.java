@@ -59,7 +59,7 @@ public class Parser implements Runnable {
 
             //parenthesis
             } else if(i.equals('(') || i.equals(')')) {
-                if(!element.isEmpty()) {
+                if(!element.isEmpty()) { //если между числом и скобкой нет знака - выражение не верно. Возможно, стоит добавить что-то чтобы в этом случае считалось, что знак между ними "*".
                     setAnswerColor(R.color.answerWrongExpressionTextColor);
                     return;
                 }

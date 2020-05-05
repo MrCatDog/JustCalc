@@ -10,7 +10,7 @@ import static com.example.justcalc.Parser.ops;
 class ShuntingYard implements PolishTranslating{
 
     private static boolean isHigher(String first, String second) {
-        return (ops.containsKey(second) && ops.get(second).precedence >= ops.get(first).precedence);
+        return (ops.containsKey(first) && ops.containsKey(second) && ops.get(second).precedence >= ops.get(first).precedence);
     }
 
     public LinkedList<String> translate(LinkedList<String> exp) {
