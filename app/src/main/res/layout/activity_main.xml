@@ -14,8 +14,9 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/textBtnColor"
         android:textSize="12pt"
-        android:focusable="false"
-        android:focusableInTouchMode="false">
+        android:inputType="none"
+        android:textIsSelectable="true"
+        >
     </EditText>
     <LinearLayout
         android:orientation="horizontal"

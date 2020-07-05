@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -42,6 +44,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
+        android:inputType="none" - just not work
+        android:editable="false" - deprecated, block copy/paste
+        android:focusable="false" - block copy
+        android:clickable="false" - not work
+
+        EditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        EditText.setTextIsSelectable(true); - block copy/paste
+
+        android:windowSoftInputMode="stateAlwaysHidden|adjustPan" - not work
+
+        @TargetApi(21)
+        EditText.setShowSoftInputOnFocus(false); - work with underline, but API must be equal or higher then 21
+
+        Next work properly:
+         */
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+
         one = findViewById(R.id.btnOne);
         two = findViewById(R.id.btnTwo);
         three = findViewById(R.id.btnThree);
@@ -70,36 +90,62 @@ public class MainActivity extends AppCompatActivity {
         expression = findViewById(R.id.etExpression);
         answer = findViewById(R.id.etAnswer);
 
-        add.setOnClickListener(new ClickRespond(this));
-        sub.setOnClickListener(new ClickRespond(this));
-        div.setOnClickListener(new ClickRespond(this));
-        mul.setOnClickListener(new ClickRespond(this));
+        ButtonsRespond CBR = new ButtonsRespond(this);
 
-        one.setOnClickListener(new ClickRespond(this));
-        two.setOnClickListener(new ClickRespond(this));
-        three.setOnClickListener(new ClickRespond(this));
-        four.setOnClickListener(new ClickRespond(this));
-        five.setOnClickListener(new ClickRespond(this));
-        six.setOnClickListener(new ClickRespond(this));
-        seven.setOnClickListener(new ClickRespond(this));
-        eight.setOnClickListener(new ClickRespond(this));
-        nine.setOnClickListener(new ClickRespond(this));
-        zero.setOnClickListener(new ClickRespond(this));
+        add.setOnClickListener(CBR);
+        sub.setOnClickListener(CBR);
+        div.setOnClickListener(CBR);
+        mul.setOnClickListener(CBR);
 
-        braces.setOnClickListener(new ClickRespond(this));
-        dot.setOnClickListener(new ClickRespond(this));
-        del.setOnClickListener(new ClickRespond(this));
-        clear.setOnClickListener(new ClickRespond(this));
-        left.setOnClickListener(new ClickRespond(this));
-        right.setOnClickListener(new ClickRespond(this));
+        one.setOnClickListener(CBR);
+        two.setOnClickListener(CBR);
+        three.setOnClickListener(CBR);
+        four.setOnClickListener(CBR);
+        five.setOnClickListener(CBR);
+        six.setOnClickListener(CBR);
+        seven.setOnClickListener(CBR);
+        eight.setOnClickListener(CBR);
+        nine.setOnClickListener(CBR);
+        zero.setOnClickListener(CBR);
+
+        braces.setOnClickListener(CBR);
+        dot.setOnClickListener(CBR);
+
+        del.setOnClickListener(CBR);
+        clear.setOnClickListener(CBR);
+        left.setOnClickListener(CBR);
+        right.setOnClickListener(CBR);
+
+        expression.addTextChangedListener(calcOnChange);
+    }
+
+    private final TextWatcher calcOnChange = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            //do nothing
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            new Thread(new Parser(getMainActivity(), getExpressionText())).start();
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            //do nothing
+        }
+    };
+
+    MainActivity getMainActivity() {
+        return this;
     }
 
     protected void appendExpressionText(String appChar) {
         expression.append(appChar);
     }
 
-    protected Editable getExpressionText() {
-        return expression.getText();
+    protected String getExpressionText() {
+        return expression.getText().toString();
     }
 
     void setAnswer(final String newAnswer) {
