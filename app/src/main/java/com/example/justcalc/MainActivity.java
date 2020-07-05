@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /*
+        Trying to block soft keyboard. Tested on Sony XZ1 compact and Nexus 5x.
+
         android:inputType="none" - just not work
         android:editable="false" - deprecated, block copy/paste
         android:focusable="false" - block copy
@@ -90,31 +92,31 @@ public class MainActivity extends AppCompatActivity {
         expression = findViewById(R.id.etExpression);
         answer = findViewById(R.id.etAnswer);
 
-        ButtonsRespond CBR = new ButtonsRespond(this);
+        ButtonsRespond BR = new ButtonsRespond(this);
 
-        add.setOnClickListener(CBR);
-        sub.setOnClickListener(CBR);
-        div.setOnClickListener(CBR);
-        mul.setOnClickListener(CBR);
+        add.setOnClickListener(BR);
+        sub.setOnClickListener(BR);
+        div.setOnClickListener(BR);
+        mul.setOnClickListener(BR);
 
-        one.setOnClickListener(CBR);
-        two.setOnClickListener(CBR);
-        three.setOnClickListener(CBR);
-        four.setOnClickListener(CBR);
-        five.setOnClickListener(CBR);
-        six.setOnClickListener(CBR);
-        seven.setOnClickListener(CBR);
-        eight.setOnClickListener(CBR);
-        nine.setOnClickListener(CBR);
-        zero.setOnClickListener(CBR);
+        one.setOnClickListener(BR);
+        two.setOnClickListener(BR);
+        three.setOnClickListener(BR);
+        four.setOnClickListener(BR);
+        five.setOnClickListener(BR);
+        six.setOnClickListener(BR);
+        seven.setOnClickListener(BR);
+        eight.setOnClickListener(BR);
+        nine.setOnClickListener(BR);
+        zero.setOnClickListener(BR);
 
-        braces.setOnClickListener(CBR);
-        dot.setOnClickListener(CBR);
+        braces.setOnClickListener(BR);
+        dot.setOnClickListener(BR);
 
-        del.setOnClickListener(CBR);
-        clear.setOnClickListener(CBR);
-        left.setOnClickListener(CBR);
-        right.setOnClickListener(CBR);
+        del.setOnClickListener(BR);
+        clear.setOnClickListener(BR);
+        left.setOnClickListener(BR);
+        right.setOnClickListener(BR);
 
         expression.addTextChangedListener(calcOnChange);
     }
@@ -140,10 +142,6 @@ public class MainActivity extends AppCompatActivity {
         return this;
     }
 
-    protected void appendExpressionText(String appChar) {
-        expression.append(appChar);
-    }
-
     protected String getExpressionText() {
         return expression.getText().toString();
     }
@@ -161,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                answer.setTextColor(color);//ЭТА ЕБУЧАЯ ХУЙНЯ ВСЁ ЛОМАЕТ!!! строго заданный цвет работает.
+                answer.setTextColor(color);
             }
         });
     }

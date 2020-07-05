@@ -1,11 +1,15 @@
 package com.example.justcalc;
 
+import android.content.res.Resources;
+
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 
 public class Parser implements Runnable {
@@ -105,6 +109,6 @@ public class Parser implements Runnable {
 
     private void setAnswerColor(int color) {
         final MainActivity activity = mainActivityWeakReference.get();
-        activity.setAnswerColor(ContextCompat.getColor(activity, color));//ContextCompact - deprecated
+                activity.setAnswerColor(ContextCompat.getColor(activity, color));
     }
 }
