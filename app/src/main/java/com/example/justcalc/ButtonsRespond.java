@@ -1,12 +1,11 @@
 package com.example.justcalc;
 
 import android.view.View;
+import android.widget.Button;
 
 public class ButtonsRespond implements View.OnClickListener {
 
     private MainActivity mainActivity;
-    private int pos;
-    private String newSymbol;
 
     ButtonsRespond(MainActivity activity) {
         this.mainActivity=activity;
@@ -14,6 +13,7 @@ public class ButtonsRespond implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        int pos;
         switch (v.getId()) {
             //отчистить всё
             case R.id.btnClear:
@@ -40,64 +40,18 @@ public class ButtonsRespond implements View.OnClickListener {
                 if (pos < mainActivity.expression.getText().length())
                     mainActivity.expression.setSelection(pos + 1);
                 break;
+            //добавить символы с кнопки
+                /*
+                Такая реализация привела к зависимости логики работы от дизайна (текст на кнопках).
+                Однако, это пораждает ситуацию, когда именно то, что написанно на кнопке,
+                попадает в исходное выражение, делая опыт использования максимально прозрачным,
+                к тому же упрощая код.
+                В случае, если потребуется разместить на кнопках иной текст, этот обработчик
+                придётся переписать.
+                */
                 default:
-                    switch (v.getId()) {
-                        case R.id.btnAdd:
-                            newSymbol="+";
-                            break;
-                        case R.id.btnSub:
-                            newSymbol="-";
-                            break;
-                        case R.id.btnMult:
-                            newSymbol="*";
-                            break;
-                        case R.id.btnDiv:
-                            newSymbol="/";
-                            break;
-
-                        case R.id.btnBraces:
-                            newSymbol="()";
-                            break;
-                        case R.id.btnDot:
-                            newSymbol=".";
-                            break;
-
-                        case R.id.btnOne:
-                            newSymbol="1";
-                            break;
-                        case R.id.btnTwo:
-                            newSymbol="2";
-                            break;
-                        case R.id.btnThree:
-                            newSymbol="3";
-                            break;
-                        case R.id.btnFour:
-                            newSymbol="4";
-                            break;
-                        case R.id.btnFive:
-                            newSymbol="5";
-                            break;
-                        case R.id.btnSix:
-                            newSymbol="6";
-                            break;
-                        case R.id.btnSeven:
-                            newSymbol="7";
-                            break;
-                        case R.id.btnEight:
-                            newSymbol="8";
-                            break;
-                        case R.id.btnNine:
-                            newSymbol="9";
-                            break;
-                        case R.id.btnZero:
-                            newSymbol="0";
-                            break;
-
-                        default:
-                            newSymbol="";
-                            break;
-                    }
-                    mainActivity.expression.getText().insert(mainActivity.expression.getSelectionStart(),newSymbol);
+                    Button button = (Button) v;
+                    mainActivity.expression.getText().insert(mainActivity.expression.getSelectionStart(),button.getText().toString());
                     break;
         }
     }

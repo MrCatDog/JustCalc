@@ -15,7 +15,7 @@
     <string name="eightText" translatable="false">8</string>
     <string name="nineText" translatable="false">9</string>
     <string name="dotText" translatable="false">.</string>
-    <string name="parenText" translatable="false">( )</string>
+    <string name="parenText" translatable="false">()</string>
     <string name="delText" translatable="false">del</string>
     <string name="leftText" translatable="false">&lt;</string>
     <string name="rightText" translatable="false">&gt;</string>
