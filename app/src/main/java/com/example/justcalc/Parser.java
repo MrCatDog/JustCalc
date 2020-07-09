@@ -113,7 +113,7 @@ public class Parser implements Runnable {
         }
 
         setAnswerColor(R.color.answerTextColor);
-        sendAnswer(Evaluator.Evaluate(Translator.translate(answer)).toString());
+        sendAnswer(Evaluator.Evaluate(Translator.translate(answer)));
     }
 
     private boolean addElem() {
@@ -126,9 +126,14 @@ public class Parser implements Runnable {
         return false;
     }
 
-    private void sendAnswer(String answer) {
+    private void sendAnswer(Double answer) {
         final MainActivity activity = mainActivityWeakReference.get();
-        activity.setAnswer(answer);
+        if ((answer == Math.floor(answer)) && !Double.isInfinite(answer)) {
+            Integer answInt = answer.intValue();
+            activity.setAnswer(answInt.toString());// integer type
+            return;
+        }
+        activity.setAnswer(answer.toString());
     }
 
     private void setAnswerColor(int color) {
