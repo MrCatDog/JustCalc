@@ -3,6 +3,7 @@ package com.example.justcalc;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.WindowManager;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     //fields
     EditText expression;
     EditText answer;
+
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +132,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            new Thread(new Parser(getMainActivity(), getExpressionText())).start();
+            //This should left a less footprint, and android monitor confirmed it. but i not sure about my skills in Handlers.
+            mHandler.post(new Parser(getMainActivity(), getExpressionText()));
+            //new Thread(new Parser(getMainActivity(), getExpressionText())).start();
         }
 
         @Override

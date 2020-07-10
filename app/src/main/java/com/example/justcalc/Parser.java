@@ -1,8 +1,5 @@
 package com.example.justcalc;
 
-import android.os.Handler;
-import android.os.Looper;
-
 import androidx.core.content.ContextCompat;
 
 import java.lang.ref.WeakReference;
