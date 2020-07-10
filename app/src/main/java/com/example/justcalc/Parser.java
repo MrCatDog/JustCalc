@@ -1,5 +1,8 @@
 package com.example.justcalc;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import androidx.core.content.ContextCompat;
 
 import java.lang.ref.WeakReference;
@@ -82,9 +85,8 @@ public class Parser implements Runnable {
                             setAnswerColor(R.color.answerWrongExpressionTextColor);
                             return;
                         } else
-                            wasDot=true;//no more dots in this number.
-                        break;
-
+                            wasDot = true;//no more dots in this number.
+                            //заметь, break тут нет, выполнение идёт дальше. Отлаживать, конечно, труднее, зато я сэкономил 2-3 строки кода. Meh.
                     //number
                     default:
                         element=element.concat(i.toString());
@@ -94,8 +96,6 @@ public class Parser implements Runnable {
                 answer.add(i.toString());
             }
         }
-
-
 
         if(!addElem() && !answer.isEmpty())//check last symbol
             if(ops.containsKey(answer.getLast())) {//if it an operation
@@ -128,12 +128,10 @@ public class Parser implements Runnable {
 
     private void sendAnswer(Double answer) {
         final MainActivity activity = mainActivityWeakReference.get();
-        if ((answer == Math.floor(answer)) && !Double.isInfinite(answer)) {
-            Integer answInt = answer.intValue();
-            activity.setAnswer(answInt.toString());// integer type
-            return;
-        }
-        activity.setAnswer(answer.toString());
+        if ((answer == Math.floor(answer)) && !Double.isInfinite(answer))
+            activity.setAnswer(Long.toString(answer.longValue()));// integer type
+        else
+            activity.setAnswer(answer.toString());
     }
 
     private void setAnswerColor(int color) {
