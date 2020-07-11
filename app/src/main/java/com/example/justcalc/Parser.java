@@ -125,7 +125,7 @@ public class Parser implements Runnable {
 
     private void sendAnswer(Double answer) {
         final MainActivity activity = mainActivityWeakReference.get();
-        if ((answer == Math.floor(answer)) && !Double.isInfinite(answer))
+        if ((answer == Math.floor(answer)) && !Double.isInfinite(answer) && answer<=Long.MAX_VALUE && answer>=Long.MIN_VALUE)
             activity.setAnswer(Long.toString(answer.longValue()));// integer type
         else
             activity.setAnswer(answer.toString());

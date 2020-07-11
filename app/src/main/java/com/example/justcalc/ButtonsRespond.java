@@ -1,7 +1,12 @@
 package com.example.justcalc;
 
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
+
+import static android.content.Context.VIBRATOR_SERVICE;
 
 public class ButtonsRespond implements View.OnClickListener {
 
@@ -14,6 +19,7 @@ public class ButtonsRespond implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int pos;
+        shake();
         switch (v.getId()) {
             //отчистить всё
             case R.id.btnClear:
@@ -53,6 +59,15 @@ public class ButtonsRespond implements View.OnClickListener {
                     Button button = (Button) v;
                     mainActivity.expression.getText().insert(mainActivity.expression.getSelectionStart(),button.getText().toString());
                     break;
+        }
+    }
+
+    // Vibrate
+    private void shake() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) mainActivity.getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(70, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            ((Vibrator) mainActivity.getSystemService(VIBRATOR_SERVICE)).vibrate(70);
         }
     }
 }
