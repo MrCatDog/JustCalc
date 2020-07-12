@@ -24,7 +24,7 @@ public class ButtonsRespond implements View.OnClickListener {
             //отчистить всё
             case R.id.btnClear:
                 mainActivity.expression.setText(null);
-                mainActivity.answer.getText().clear();
+                mainActivity.answer.setText(null);
                 break;
 
             //удалять символ перед курсором

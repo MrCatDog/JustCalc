@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //digits
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     Button clear;
     //fields
     EditText expression;
-    EditText answer;
+    TextView answer;
 
     private Handler mHandler = new Handler();
 

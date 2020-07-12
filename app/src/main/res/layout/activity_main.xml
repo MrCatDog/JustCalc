@@ -35,15 +35,22 @@
             >
         </Button>
 
-        <EditText
+        <TextView
             android:id="@+id/etAnswer"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:textColor="@color/textBtnColor"
             android:textSize="12pt"
+            android:textIsSelectable="true"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMinTextSize="8pt"
+            app:autoSizeMaxTextSize="12pt"
+            app:autoSizeStepGranularity="2pt"
+            android:maxLines="1"
+            android:gravity="end|center"
             >
-        </EditText>
+        </TextView>
     </LinearLayout>
 
 
