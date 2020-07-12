@@ -93,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
         del = findViewById(R.id.btnDel);
         clear = findViewById(R.id.btnClear);
 
-        expression = findViewById(R.id.etExpression);
-        answer = findViewById(R.id.etAnswer);
+        expression = findViewById(R.id.Expression);
+        answer = findViewById(R.id.Answer);
 
         ButtonsRespond BR = new ButtonsRespond(this);
 

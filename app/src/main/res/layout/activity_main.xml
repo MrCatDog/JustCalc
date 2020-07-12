@@ -2,29 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_gravity="bottom"
-    android:layout_width="fill_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
     <EditText
-        android:id="@+id/etExpression"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:layout_weight="10"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/textBtnColor"
-        android:textSize="12pt"
-        android:inputType="none"
-        android:textIsSelectable="true"
+        android:id="@+id/Expression"
+        style="@style/expression"
         >
     </EditText>
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/linearLayout"
-        android:background="@color/colorPrimary"
-        android:layout_weight="3"
+        style="@style/LinearLine"
         >
 
         <Button
@@ -36,30 +25,20 @@
         </Button>
 
         <TextView
-            android:id="@+id/etAnswer"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:textColor="@color/textBtnColor"
-            android:textSize="12pt"
+            android:id="@+id/Answer"
+            style="@style/answer"
             android:textIsSelectable="true"
             app:autoSizeTextType="uniform"
             app:autoSizeMinTextSize="8pt"
-            app:autoSizeMaxTextSize="12pt"
+            app:autoSizeMaxTextSize="14pt"
             app:autoSizeStepGranularity="2pt"
-            android:maxLines="1"
-            android:gravity="end|center"
             >
         </TextView>
     </LinearLayout>
 
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:id="@+id/linearLayout1"
+        style="@style/LinearLine"
         >
         <Button
             style="@style/Btn"
@@ -83,12 +62,9 @@
             android:background="@color/operationsBtnsBrighterColor">
         </Button>
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:id="@+id/linearLayout2"
+        style="@style/LinearLine"
         >
         <Button
             style="@style/Btn"
@@ -112,10 +88,9 @@
             android:background="@color/operationsBtnsColor">
         </Button>
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
+        style="@style/LinearLine"
         >
 
         <Button
@@ -143,10 +118,9 @@
             android:background="@color/operationsBtnsColor">
         </Button>
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
+        style="@style/LinearLine"
         >
 
         <Button
@@ -174,11 +148,9 @@
             android:background="@color/operationsBtnsColor">
         </Button>
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
+        style="@style/LinearLine"
         >
 
         <Button
