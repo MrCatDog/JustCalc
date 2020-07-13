@@ -2,14 +2,19 @@ package com.example.justcalc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //digits
@@ -123,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         right.setOnClickListener(BR);
 
         expression.addTextChangedListener(calcOnChange);
+        braces.setOnTouchListener(new OnSwipeTouchListener(this));
     }
 
     private final TextWatcher calcOnChange = new TextWatcher() {
@@ -150,6 +156,10 @@ public class MainActivity extends AppCompatActivity {
 
     protected String getExpressionText() {
         return expression.getText().toString();
+    }
+
+    void insertExpressionSymbols(String symbols) {
+        expression.getText().insert(expression.getSelectionStart(),symbols);
     }
 
     void setAnswer(final String newAnswer) {
