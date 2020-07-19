@@ -16,13 +16,29 @@
         style="@style/LinearLine"
         >
 
-        <Button
-            style="@style/Btn"
-            android:text="@string/equalsText"
+        <LinearLayout
             android:id="@+id/btnEquals"
+            style="@style/Btn"
             android:background="@color/colorPrimary"
             >
-        </Button>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/equalsText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/Answer"
@@ -36,146 +52,465 @@
         </TextView>
     </LinearLayout>
 
-
     <LinearLayout
         style="@style/LinearLine"
         >
-        <Button
+
+        <LinearLayout
+            android:id="@+id/btnLeft"
             style="@style/Btn"
-            android:text="@string/leftText"
-            android:id="@+id/btnLeft">
-        </Button>
-        <Button
-            style="@style/Btn"
-            android:text="@string/rightText"
-            android:id="@+id/btnRight">
-        </Button>
-        <Button
-            style="@style/Btn"
-            android:text="@string/percentText"
-            android:id="@+id/btnClear">
-        </Button>
-        <Button
-            style="@style/Btn"
-            android:text="@string/delText"
+            >
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/leftText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnRight"
+            style="@style/Btn">
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/rightText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnClear"
+            style="@style/Btn">
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/clearText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnDel"
-            android:background="@color/operationsBtnsBrighterColor">
-        </Button>
+            style="@style/Btn"
+            android:background="@color/operationsBtnsBrighterColor"
+            >
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/delText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         style="@style/LinearLine"
         >
-        <Button
-            style="@style/Btn"
-            android:text="@string/oneText"
-            android:id="@+id/btnOne">
-        </Button>
-        <Button
-            style="@style/Btn"
-            android:text="@string/twoText"
-            android:id="@+id/btnTwo">
-        </Button>
-        <Button
-            style="@style/Btn"
-            android:text="@string/threeText"
-            android:id="@+id/btnThree">
-        </Button>
-        <Button
-            style="@style/Btn"
-            android:text="@string/divText"
+
+        <LinearLayout
+            android:id="@+id/btnOne"
+            style="@style/Btn">
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/oneText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnTwo"
+            style="@style/Btn">
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/twoText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnThree"
+            style="@style/Btn">
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/threeText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnDiv"
-            android:background="@color/operationsBtnsColor">
-        </Button>
+            style="@style/Btn"
+            android:background="@color/operationsBtnsColor"
+            >
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/divText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         style="@style/LinearLine"
         >
 
-        <Button
-            style="@style/Btn"
+        <LinearLayout
             android:id="@+id/btnFour"
-            android:text="@string/fourText">
-        </Button>
+            style="@style/Btn">
 
-        <Button
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/fourText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnFive"
-            android:text="@string/fiveText"
             style="@style/Btn">
-        </Button>
 
-        <Button
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/fiveText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnSix"
-            android:text="@string/sixText"
             style="@style/Btn">
-        </Button>
 
-        <Button
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/sixText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnMult"
-            android:text="@string/multText"
             style="@style/Btn"
-            android:background="@color/operationsBtnsColor">
-        </Button>
+            android:background="@color/operationsBtnsColor"
+            >
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/multText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         style="@style/LinearLine"
         >
 
-        <Button
+        <LinearLayout
             android:id="@+id/btnSeven"
-            android:text="@string/sevenText"
             style="@style/Btn">
-        </Button>
 
-        <Button
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/sevenText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnEight"
-            android:text="@string/eightText"
             style="@style/Btn">
-        </Button>
 
-        <Button
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/eightText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnNine"
-            android:text="@string/nineText"
             style="@style/Btn">
-        </Button>
 
-        <Button
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/nineText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnSub"
-            android:text="@string/minText"
             style="@style/Btn"
-            android:background="@color/operationsBtnsColor">
-        </Button>
+            android:background="@color/operationsBtnsColor"
+            >
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/minText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         style="@style/LinearLine"
         >
 
-        <Button
+        <LinearLayout
             android:id="@+id/btnBraces"
-            android:text="@string/parenText"
-            style="@style/Btn">
-        </Button>
-
-        <Button
-            android:id="@+id/btnZero"
-            android:text="@string/zeroText"
-            style="@style/Btn">
-        </Button>
-
-        <Button
-            android:id="@+id/btnDot"
-            android:text="@string/dotText"
-            style="@style/Btn">
-        </Button>
-
-        <Button
-            android:id="@+id/btnAdd"
-            android:text="@string/addText"
             style="@style/Btn"
-            android:background="@color/operationsBtnsColor">
-        </Button>
+            >
+
+            <TextView
+                android:text="@string/bracesUpText"
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/parenText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text="@string/bracesDownText"
+                style="@style/BtnSwipe">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnZero"
+            style="@style/Btn">
+
+            <TextView
+                android:text="@string/zeroUpText"
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/zeroText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text="@string/zeroDownText"
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnDot"
+            style="@style/Btn">
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/dotText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnAdd"
+            style="@style/Btn"
+            android:background="@color/operationsBtnsColor"
+            >
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+
+            <TextView
+                android:text="@string/addText"
+                style="@style/BtnCentral"
+                >
+            </TextView>
+
+            <TextView
+                android:text=""
+                style="@style/BtnSwipe">
+            </TextView>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

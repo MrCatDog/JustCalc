@@ -2,46 +2,41 @@ package com.example.justcalc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //digits
-    Button one;
-    Button two;
-    Button three;
-    Button four;
-    Button five;
-    Button six;
-    Button seven;
-    Button eight;
-    Button nine;
-    Button zero;
+    View one;
+    View two;
+    View three;
+    View four;
+    View five;
+    View six;
+    View seven;
+    View eight;
+    View nine;
+    View zero;
     //operations
-    Button add;
-    Button sub;
-    Button mul;
-    Button div;
+    View add;
+    View sub;
+    View mul;
+    View div;
     //symbols
-    Button braces;
-    Button dot;
+    View braces;
+    View dot;
     //movements
-    Button left;
-    Button right;
+    View left;
+    View right;
     //deleting
-    Button del;
-    Button clear;
+    View del;
+    View clear;
     //fields
     EditText expression;
     TextView answer;
@@ -128,7 +123,14 @@ public class MainActivity extends AppCompatActivity {
         right.setOnClickListener(BR);
 
         expression.addTextChangedListener(calcOnChange);
-        braces.setOnTouchListener(new OnSwipeTouchListener(this));
+
+        OnSwipeTouchListener listener = new OnSwipeTouchListener(this);
+
+        braces.setOnTouchListener(listener);
+        zero.setOnTouchListener(listener);
+
+        expression.requestFocus();
+
     }
 
     private final TextWatcher calcOnChange = new TextWatcher() {

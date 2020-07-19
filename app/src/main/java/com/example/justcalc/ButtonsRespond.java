@@ -4,7 +4,9 @@ import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 
@@ -55,10 +57,10 @@ public class ButtonsRespond implements View.OnClickListener {
                 В случае, если потребуется разместить на кнопках иной текст, этот обработчик
                 придётся переписать.
                 */
-                default:
-                    Button button = (Button) v;
-                    mainActivity.expression.getText().insert(mainActivity.expression.getSelectionStart(),button.getText().toString());
-                    break;
+            default:
+                TextView tv = (TextView)((ViewGroup) v).getChildAt(1);
+                mainActivity.insertExpressionSymbols(tv.getText().toString());
+                break;
         }
     }
 

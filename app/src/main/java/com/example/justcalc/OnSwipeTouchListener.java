@@ -8,22 +8,44 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
 
     private final GestureDetector gestureDetector;
     private final MainActivity mainActivity;
+    private int whoTouched;
 
-    public OnSwipeTouchListener(MainActivity mainActivity) {
+    OnSwipeTouchListener(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
         gestureDetector = new GestureDetector(mainActivity, new GestureListener());
     }
 
+    public boolean onTouch(View v, MotionEvent event) {
+        whoTouched = v.getId();
+        return gestureDetector.onTouchEvent(event);
+    }
+
     private void onSwipeUp() {
-        mainActivity.insertExpressionSymbols("(");
+        switch (whoTouched) {
+            case R.id.btnBraces:
+                mainActivity.insertExpressionSymbols("(");
+                break;
+            case R.id.btnZero:
+                mainActivity.insertExpressionSymbols("000");
+                break;
+                default:
+                    //chill
+                    break;
+        }
     }
 
     private void onSwipeDown() {
-        mainActivity.insertExpressionSymbols(")");
-    }
-
-    public boolean onTouch(View v, MotionEvent event) {
-        return gestureDetector.onTouchEvent(event);
+        switch (whoTouched) {
+            case R.id.btnBraces:
+                mainActivity.insertExpressionSymbols(")");
+                break;
+            case R.id.btnZero:
+                mainActivity.insertExpressionSymbols("00");
+                break;
+            default:
+                //chill
+                break;
+        }
     }
 
     private final class GestureListener extends GestureDetector.SimpleOnGestureListener {

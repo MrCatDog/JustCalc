@@ -16,10 +16,13 @@
     <string name="nineText" translatable="false">9</string>
     <string name="dotText" translatable="false">.</string>
     <string name="parenText" translatable="false">()</string>
-    <string name="delText" translatable="false">del</string>
+    <string name="delText" translatable="false">DEL</string>
     <string name="leftText" translatable="false">&lt;</string>
     <string name="rightText" translatable="false">&gt;</string>
-    <string name="percentText" translatable="false">C</string>
+    <string name="clearText" translatable="false">C</string>
     <string name="equalsText" translatable="false">=</string>
-    <string name="btnTextSize" translatable="false">12pt</string>
+    <string name="bracesUpText" translatable="false">(</string>
+    <string name="bracesDownText" translatable="false">)</string>
+    <string name="zeroUpText" translatable="false">000</string>
+    <string name="zeroDownText" translatable="false">00</string>
 </resources>
