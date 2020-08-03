@@ -1,27 +1,21 @@
 package com.example.justcalc;
 
-import android.os.Build;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-
-import static android.content.Context.VIBRATOR_SERVICE;
 
 public class ButtonsRespond implements View.OnClickListener {
 
     private MainActivity mainActivity;
+    private Shaker shaker;
 
     ButtonsRespond(MainActivity activity) {
         this.mainActivity=activity;
+        shaker=new Shaker(mainActivity);
     }
 
     @Override
     public void onClick(View v) {
         int pos;
-        shake();
+        shaker.shake();
         switch (v.getId()) {
             //отчистить всё
             case R.id.btnClear:
@@ -42,34 +36,62 @@ public class ButtonsRespond implements View.OnClickListener {
                 if (pos > 0)
                     mainActivity.expression.setSelection(pos - 1);
                 break;
-
             case R.id.btnRight:
                 pos = mainActivity.expression.getSelectionEnd();
                 if (pos < mainActivity.expression.getText().length())
                     mainActivity.expression.setSelection(pos + 1);
                 break;
-            //добавить символы с кнопки
-                /*
-                Такая реализация привела к зависимости логики работы от дизайна (текст на кнопках).
-                Однако, это пораждает ситуацию, когда именно то, что написанно на кнопке,
-                попадает в исходное выражение, делая опыт использования максимально прозрачным,
-                к тому же упрощая код.
-                В случае, если потребуется разместить на кнопках иной текст, этот обработчик
-                придётся переписать.
-                */
-            default:
-                TextView tv = (TextView)((ViewGroup) v).getChildAt(1);
-                mainActivity.insertExpressionSymbols(tv.getText().toString());
+                //операции
+            case R.id.btnAdd:
+                mainActivity.insertExpressionSymbols("+");
                 break;
-        }
-    }
-
-    // Vibrate
-    private void shake() {
-        if (Build.VERSION.SDK_INT >= 26) {
-            ((Vibrator) mainActivity.getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(70, VibrationEffect.DEFAULT_AMPLITUDE));
-        } else {
-            ((Vibrator) mainActivity.getSystemService(VIBRATOR_SERVICE)).vibrate(70);
+            case R.id.btnMult:
+                mainActivity.insertExpressionSymbols("*");
+                break;
+            case R.id.btnSub:
+                mainActivity.insertExpressionSymbols("-");
+                break;
+            case R.id.btnDiv:
+                mainActivity.insertExpressionSymbols("/");
+                break;
+                //скобки и точка
+            case R.id.btnBraces:
+                mainActivity.insertExpressionSymbols("()");
+                break;
+            case R.id.btnDot:
+                mainActivity.insertExpressionSymbols(".");
+                break;
+            //цифры
+            case R.id.btnZero:
+                mainActivity.insertExpressionSymbols("0");
+                break;
+            case R.id.btnOne:
+                mainActivity.insertExpressionSymbols("1");
+                break;
+            case R.id.btnTwo:
+                mainActivity.insertExpressionSymbols("2");
+                break;
+            case R.id.btnThree:
+                mainActivity.insertExpressionSymbols("3");
+                break;
+            case R.id.btnFour:
+                mainActivity.insertExpressionSymbols("4");
+                break;
+            case R.id.btnFive:
+                mainActivity.insertExpressionSymbols("5");
+                break;
+            case R.id.btnSix:
+                mainActivity.insertExpressionSymbols("6");
+                break;
+            case R.id.btnSeven:
+                mainActivity.insertExpressionSymbols("7");
+                break;
+            case R.id.btnEight:
+                mainActivity.insertExpressionSymbols("8");
+                break;
+            case R.id.btnNine:
+                mainActivity.insertExpressionSymbols("9");
+                break;
         }
     }
 }
