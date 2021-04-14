@@ -13,35 +13,36 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     //digits
-    View one;
-    View two;
-    View three;
-    View four;
-    View five;
-    View six;
-    View seven;
-    View eight;
-    View nine;
-    View zero;
+    private View one;
+    private View two;
+    private View three;
+    private View four;
+    private View five;
+    private View six;
+    private View seven;
+    private View eight;
+    private View nine;
+    private View zero;
     //operations
-    View add;
-    View sub;
-    View mul;
-    View div;
+    private View add;
+    private View sub;
+    private View mul;
+    private View div;
     //symbols
-    View braces;
-    View dot;
+    private View braces;
+    private View dot;
     //movements
-    View left;
-    View right;
+    private View left;
+    private View right;
     //deleting
-    View del;
-    View clear;
+    private View del;
+    private View clear;
     //fields
-    EditText expression;
-    TextView answer;
+    private EditText expression;
+    private TextView answer;
 
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
+    private final ButtonsRespond BR = new ButtonsRespond(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
         expression = findViewById(R.id.Expression);
         answer = findViewById(R.id.Answer);
-
-        ButtonsRespond BR = new ButtonsRespond(this);
 
         add.setOnClickListener(BR);
         sub.setOnClickListener(BR);

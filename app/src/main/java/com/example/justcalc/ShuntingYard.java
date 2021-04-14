@@ -7,7 +7,7 @@ import java.util.ListIterator;
 
 import static com.example.justcalc.Parser.ops;
 
-class ShuntingYard implements PolishTranslating{
+class ShuntingYard implements PolishTranslating {
 
     private static boolean isHigher(String first, String second) {
         return (ops.containsKey(first) && ops.containsKey(second) && ops.get(second).precedence >= ops.get(first).precedence);
@@ -21,20 +21,20 @@ class ShuntingYard implements PolishTranslating{
 
         while (iterator.hasNext()) {
             token = iterator.next();
-            if(ops.containsKey(token)) {
+            if (ops.containsKey(token)) {
                 while (!operators.isEmpty() && isHigher(token, operators.peek()))
                     answer.add(operators.pop());
                 operators.push(token);
             }
 
             //left brace
-            else if(token.equals("(")) {
+            else if (token.equals("(")) {
                 operators.push(token);
             }
 
             //right brace
-            else if(token.equals(")")) {
-                while(!"(".equals(operators.peek()))
+            else if (token.equals(")")) {
+                while (!"(".equals(operators.peek()))
                     answer.add(operators.pop());
                 operators.pop();
             }
@@ -42,7 +42,7 @@ class ShuntingYard implements PolishTranslating{
             //digit
             else answer.add(token);
         }
-        while(!operators.isEmpty())
+        while (!operators.isEmpty())
             answer.add(operators.pop());
 
         return answer;

@@ -23,24 +23,24 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
     private void onSwipeUp() {
         switch (whoTouched) {
             case R.id.btnBraces:
-                mainActivity.insertExpressionSymbols("(");
+                mainActivity.insertExpressionSymbols(mainActivity.getResources().getString(R.string.bracesUpText));
                 break;
             case R.id.btnZero:
-                mainActivity.insertExpressionSymbols("000");
+                mainActivity.insertExpressionSymbols(mainActivity.getResources().getString(R.string.zeroUpText));
                 break;
-                default:
-                    //chill
-                    break;
+            default:
+                //chill
+                break;
         }
     }
 
     private void onSwipeDown() {
         switch (whoTouched) {
             case R.id.btnBraces:
-                mainActivity.insertExpressionSymbols(")");
+                mainActivity.insertExpressionSymbols(mainActivity.getResources().getString(R.string.bracesDownText));
                 break;
             case R.id.btnZero:
-                mainActivity.insertExpressionSymbols("00");
+                mainActivity.insertExpressionSymbols(mainActivity.getResources().getString(R.string.zeroDownText));
                 break;
             default:
                 //chill

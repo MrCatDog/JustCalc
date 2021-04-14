@@ -9,7 +9,7 @@ public class ButtonsRespond implements View.OnClickListener {
 
     ButtonsRespond(MainActivity activity) {
         this.mainActivity=activity;
-        shaker=new Shaker(mainActivity);
+        this.shaker=new Shaker(mainActivity);
     }
 
     @Override
